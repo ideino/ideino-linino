@@ -95,6 +95,9 @@ app = express();
 
 var server = require('http').createServer(app),
   io = require('socket.io').listen(server);
+  
+  io.set('transport',['xhr-polling','websocket']);
+  io.set('log level',3);
 // ideino config
 
 //ST find ip addresses
