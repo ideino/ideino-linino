@@ -1,0 +1,52 @@
+<div class="navbar /*btn-inverse*/ navbar-static-top">
+  <div class="navbar-inner">
+    <div class="container-fluid">
+      <!--<a class="brand" href="/account">Ideino</a>-->
+	  <a class="brand" href="http://www.ideino.org">Ideino</a>
+	  <p class="brand-mini">beta</p>
+
+		<div class="btn-group pull-right links" style="margin-left:10px;margin-right:10px">
+			<button data-toggle="dropdown" class="btn /*btn-inverse*/ dropdown-toggle"><span class="caret"></span>
+			</button>
+			<ul class="dropdown-menu">
+			  <li>
+				<a class="view" href="#files">Show files</a>
+			  </li>
+			  <li>
+				<a class="view" href="#frames">Show frames</a>
+			  </li>
+			  <% if (initData.config.links) { %>
+			  <li class="divider"></li>
+			  <% 
+			  var links = initData.config.links;
+			  for (var l in links) { 
+				var href = links[l]; 
+				if (l.indexOf('-') == 0) { 
+				  l = l.substring(1); %>
+				  <li class="divider"></li>
+				<% } %>
+				<li>
+				  <a href="<%= href %>" target="_blank"><%= l %></a>
+				</li>
+			  <% } %>
+			  <% } %>
+			  <li class="divider"></li>
+			  <li>
+				<a href="/account">Workspace</a>
+			  </li>
+			  <li>
+				<a href="/logout">Logout</a>
+			  </li>
+			</ul>
+		  </div>
+		<!--<div class="btn-group pull-right" style="margin-left:10px;margin-right:10px">      
+			<button type="button" class="btn btn-default btn-lg">
+			  <span class="icon-play"></span>Run
+			</button>
+			<button type="button" class="btn btn-default btn-lg">
+			  <span class="icon-step-forward"></span>Debug
+			</button>
+		</div>-->	
+	</div>
+  </div>
+</div>

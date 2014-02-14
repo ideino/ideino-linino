@@ -1,0 +1,58 @@
+<% layout('layout') -%>
+
+<% stylesheet('/css/index.css') -%>
+<% script('//cdnjs.cloudflare.com/ajax/libs/masonry/2.1.08/jquery.masonry.min.js') -%>
+
+<script>
+  $(function(){
+    $('ul.thumbnails').masonry({
+      itemSelector: '.box',
+      isFitWidth: true
+    });
+  });
+</script>
+
+<div id="header">
+  <div class="navbar navbar-static-top">
+    <div class="navbar-inner">
+      <div class="container-fluid">
+        <a class="brand" href="http://www.ideino.org">Ideino</a>
+		<p class="brand-mini">beta</p>
+      </div>
+    </div>
+  </div>
+</div>
+<div id="content">
+	<% if (typeof(message)!= 'undefined' && message) { %>
+	<p><%= message %></p>
+	<% } %>
+		<table border=0 align="center">
+			<tr>
+				<td>
+					<img src="/img/logo-medium.png">
+				</td>
+				<td>
+					<form action="/login" method="post">
+						<!--<div>-->
+							<!--<label>Username:</label>-->
+							<input type="hidden" name="username" value="root"/><br/>
+						<!--</div>-->
+						<div>
+							<label>Password:</label>
+							<input type="password" name="password"/>
+						</div>
+						<div>
+							<input class="btn pull-center" type="submit" value="Login"/>
+						</div>
+				</form>
+				</td>
+			</tr>
+		</table>
+	<!--
+	<ul class="thumbnails">
+        <li class="box">
+
+		</li>
+	</ul>-->
+</div>
+

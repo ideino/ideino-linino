@@ -1,0 +1,11 @@
+{
+  "name": "ideino",
+  "version": "0.0.1",
+  "description": "Node.js IDE Express+Bootstrap Template",
+  "author": {
+    "name": "Dave Stone"
+  },
+  "dependencies": {
+    "express": "*"
+  }
+}

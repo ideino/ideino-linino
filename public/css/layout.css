@@ -1,0 +1,28 @@
+html, body {
+  overflow: hidden;
+}
+#header, #footer {
+  position:absolute;
+  left:0;
+  right:0;
+}
+#header {
+  top:0;
+  z-index:1;
+  height:41px;
+  border-top: 3px solid #E51512;
+}
+#header a.brand {
+  font-family: monospace
+}
+#header a.brand span {
+  color: #E51512;
+}
+#header p.brand-mini {
+  font-family: monospace;
+  font-size: 11px;
+  top: 22px;
+  left:100px;
+  position:absolute;
+  color: #DE1411;
+}

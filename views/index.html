@@ -1,0 +1,129 @@
+<% layout('layout') -%>
+
+<% stylesheet('/css/index.css') -%>
+<% script('//cdnjs.cloudflare.com/ajax/libs/masonry/2.1.08/jquery.masonry.min.js') -%>
+
+<% script('/js/bootbox.min.js') -%>
+
+
+<script>
+  $(function(){
+    $('ul.thumbnails').masonry({
+      itemSelector: '.box',
+      isFitWidth: true
+    });
+  });
+</script>
+
+
+<script>
+	function reqDeleteDir(target){
+		bootbox.confirm("Are you sure to delete " + target + " project ?", function(result){
+			if (result) {
+				var xmlHttp = null;
+				xmlHttp = new XMLHttpRequest();
+				xmlHttp.open( "GET", "/account/?delproj=" + target, false );
+				xmlHttp.send( null );
+				window.location.reload()
+			}
+		});
+	}
+</script>
+
+<script>
+	function reqCopyDir(src,target){
+		bootbox.prompt("What is the name of the new project ?", function(result){
+			//TODO: verify that doesn't exist
+			if (result) {
+				var xmlHttp = null;
+				xmlHttp = new XMLHttpRequest();
+				xmlHttp.open( "GET", "/account/?cpproj=" + src + "&nwproj=" + result, false );
+				xmlHttp.send( null );
+				window.location.reload()
+			}
+		});
+	}
+</script>
+
+<script>
+	function reqNewDir(){
+		bootbox.prompt("What is the name of the new project ?", function(result){
+			if (result) {
+				var xmlHttp = null;
+				xmlHttp = new XMLHttpRequest();
+				xmlHttp.open( "GET", "/account/?nwwproj=" + result, false );
+				xmlHttp.send( null );
+				window.location.reload()
+			}
+		});
+	}
+</script>
+
+
+<div id="header">
+	<div class="navbar /*btn-inverse*/ navbar-static-top">
+	  <div class="navbar-inner">
+	    <div class="container-fluid">
+	      <!--<a class="brand" href="/account">Ideino</a>-->
+		  	<a class="brand" href="http://www.ideino.org">Ideino</a>
+			<p class="brand-mini">beta</p>
+	      <div class="btn-group pull-right links">
+	        <button data-toggle="dropdown" class="btn /*btn-inverse*/ dropdown-toggle"><span class="caret"></span>
+	        </button>
+	        <ul class="dropdown-menu">
+				<li>
+					<a href="#" onclick="reqNewDir();return false;">New project</a>
+					<a href="#" onclick="gitHub();return false;">New GitHub project</a>
+				</li>
+				
+				<li class="divider"></li>
+				<li>
+					<a href="/logout">Logout</a>
+				</li>
+				
+	        </ul>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+</div>
+</div><div id="content">
+  <% if (typeof items !== 'undefined') { %>
+    <ul class="thumbnails">
+      <% items.forEach(function(item) { %>
+        <li class="box">
+          <div class="thumbnail">
+            <img src="/img/logo-small.png" alt="" />
+            <div class="caption clearfix">
+              <h3 class="dirname"><%= item.name %></h3>
+              <p class="version"><%= item.package.version || '' %></p>
+              <h5 class="pkgname"><%=  item.package.name || '' %></h5>
+              <p class="desc"><%=  item.package.description || '' %></p>
+              <% if (item.package.author && item.package.author.name) { %>
+                <address class="pull-left">
+                  <strong><%= item.package.author.name %></strong><br>
+                  <% if (item.package.author.email) {%>
+                  <a href="mailto:<%= item.package.author.email %>"><%= item.package.author.email %></a>
+                  <% } %>
+                </address>
+              <% } %>
+				<br />
+				<br />
+              <!--
+			  <a class="btn btn-mini pull-right"  href="#" onclick="reqDeleteDir('<%= item.name %>');return false;">Delete</a>
+              <a class="btn btn-mini pull-right"  href="#" onclick="reqCopyDir('<%= item.name %>');return false;">Copy</a>
+			  <a class="btn btn-mini btn-info pull-right"  href="#" onclick="reqShare('<%= item.name %>');return false;">Share</a>
+              <a class="btn btn-mini pull-right" href="/account/?proj=<%= item.name %>"> Open</a>
+			  -->
+			  <a href="#" class="btn btn-mini pull-right" onclick="reqDeleteDir('<%= item.name %>');return false;"><i class="icon-remove"></i> Delete</a>
+			  <a href="#" class="btn btn-mini pull-right" onclick="reqCopyDir('<%= item.name %>');return false;"><i class="icon-star"></i> Copy</a>
+			  <a href="/account/?proj=<%= item.name %>" class="btn btn-mini pull-right"><i class="icon-folder-open"></i> Open</a>
+            </div>
+          </div>
+        </li>
+      <% }) %>
+    </ul>
+    <% } else { %>
+      <p>No projects found in projects root directory. To open the IDE on a specific directory add a 'path' query string to the URL. E.g. For windows this will be ?path=c:\myprojects, UNIX  ?path=\root\myprojects</p>
+    <% } %>
+</div>
