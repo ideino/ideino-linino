@@ -7,9 +7,13 @@ It's the node.js development environment for [Linino](http://www.linino.org).
 
 * Luci
 
-To connect `Ideino` environment to `Luci`, the files under _lininofiles replace the corresponding files on `Linino`:
+To connect `Ideino` environment to `Luci` xxxx the following istrunctions:
 
-```
-/usr/lib/lua/luci/view/linino/homepage.htm
-/www/luci-static/resources/linino/ideino.js
-```
+1- in `Linino` go to `/usr/lib/lua/luci/view/linino/` and rename `homepafge.htm` to `homepage.htm.bak` and copy inside `/_lininofiles/homepage.htm`.
+
+2- copy `/_lininofiles/ideino.js` into `/www/luci-static/resources/linino/` directory in `Linino`.
+
+
+# Installation
+
+`npm -f install`
