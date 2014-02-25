@@ -1,8 +1,8 @@
 {
   "name": "hello-world",
   "version": "0.0.1",
-  "description": "Node.js IDE Project",
+  "description": "Ideino example project",
   "author": {
-    "name": "John Doe"
+    "name": "Ideino Team"
   }
 }

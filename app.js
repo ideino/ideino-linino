@@ -96,8 +96,8 @@ app = express();
 var server = require('http').createServer(app),
   io = require('socket.io').listen(server);
   
-  io.set('transport',['xhr-polling','websocket']);
-  io.set('log level',3);
+  io.set('transport',['xhr-polling']);
+  io.set('log level',1);
 // ideino config
 
 //ST find ip addresses
@@ -145,7 +145,7 @@ app.configure(function() {
   app.set('views', path.join(__dirname, 'views'));
   app.set('view engine', 'html');
   app.use(express.cookieParser());
-  app.use(express.logger());//ST PASSPORT
+  //app.use(express.logger());//ST PASSPORT -> express logger
   app.use(express.session({
     store: sessionStore,
     secret: '5up3453c43t',
