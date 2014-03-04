@@ -96,7 +96,7 @@ app = express();
 var server = require('http').createServer(app),
   io = require('socket.io').listen(server);
   
-  io.set('transport',['xhr-polling']);
+  io.set('transports',['xhr-polling']);
   io.set('log level',1);
 // ideino config
 
