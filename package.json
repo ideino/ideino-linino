@@ -1,9 +1,9 @@
 {
-  "name": "ideino",
+  "name": "ideino-linino",
   "version": "0.0.1",
-  "description": "Node.js IDE",
+  "description": "Node.js IDE for linino",
   "author": {
-    "name": "Dave Stone"
+    "name": "ideino.org"
   },
   "dependencies": {
     "express": "3.x.x",
