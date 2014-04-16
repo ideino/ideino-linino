@@ -245,6 +245,24 @@ $(function($) {
               }
             }
           }));
+        },
+		//ST ad autorun command
+		'runauto': function(item) {
+          var self = this;
+		  console.log(item.paths());
+		  
+          this.procs.add(new ChildProcess({
+            cmd: 'autorun',
+            paths: item.paths(),
+            socket: this.socket,
+            exitCallback: function(code) {
+              if (code === 0) {
+                Utils.success('Autorun', item.get('name') + ' will run automatically at next startup' );
+              } else {
+                Utils.error('Autorun', 'There was un error while setting ' + item.get('name') + ' at startup - see console');
+              }
+            }
+          }));		  
         }
       }[name].call(this, item);
     }

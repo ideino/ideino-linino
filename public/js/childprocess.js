@@ -43,10 +43,18 @@ $(function($) {
 				});			
 			
 			if (!data.alive) {
-				socket.emit('spawn', { command: data.cmd, paths: data.paths, cid: this.cid }, function(data) {
-					console.log('cb '+data);
-					self.set({ pid: data, alive: true });
-				});
+				if(data.cmd.toLowerCase() == 'autorun' ){
+					socket.emit('spawnautorun', { command: data.cmd, paths: data.paths, cid: this.cid }, function(data) {
+						console.log('cb '+data);
+						self.set({ pid: data, alive: true });
+					});
+				}
+				else{
+					socket.emit('spawn', { command: data.cmd, paths: data.paths, cid: this.cid }, function(data){
+						console.log('cb '+data);
+						self.set({ pid: data, alive: true });
+					});
+				}
 			} else {
 				socket.emit('bind', { command: data.cmd, pid: data.pid, paths: data.paths, cid: this.cid }, function(data) {
 					console.log('cb '+data);

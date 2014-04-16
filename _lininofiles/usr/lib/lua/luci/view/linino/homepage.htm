@@ -57,7 +57,7 @@ http.prepare_content("text/html; charset=utf-8")
           <input class="btTxt submit saveForm" type="submit" value="Configure" onclick="javascript:return goto('<%= pcdata(controller .. '/webpanel/config') %>');">
         </form>
 		</br>
-		<form onsubmit='getUrlIdeino(this)'; method="get" action="">
+		<form id="ideinoform" onsubmit='' method="get" action="<%= pcdata(controller .. '/admin/system/startup/') %>">
           <input class="btTxt submit saveForm" type="submit" value="Play with Ideino">
         </form>
       </div>
