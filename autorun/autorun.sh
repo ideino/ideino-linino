@@ -2,7 +2,6 @@
 # authors: arturo rinaldi, sergio tomasello
 # license: mit
 
-
 export PATH=/usr/bin:/bin:/sbin:/opt/usr/bin
 AUTODIR=/opt/ideino-linino/autorun
 CONFIG_FILE=/opt/ideino-linino/autorun/autorun.conf

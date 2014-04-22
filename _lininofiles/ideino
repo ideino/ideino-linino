@@ -10,7 +10,7 @@ START=99
 
 start () {
   
-      if [ -x $NODEJS ] && [ -e /opt/ideino-linino/ideino.js ]
+    if [ -x $NODEJS ] && [ -e /opt/ideino-linino/ideino.js ]
       
 	then
 	

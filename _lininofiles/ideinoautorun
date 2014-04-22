@@ -1,0 +1,40 @@
+#!/bin/sh /etc/rc.common
+# authors: arturo rinaldi, sergio tomasello
+# license: mit
+
+START=99
+
+export PATH=/usr/bin:/bin:/sbin:/opt/usr/bin
+export NODEJS=/opt/usr/bin/node
+export LD_LIBRARY_PATH=/opt/usr/lib
+export NPM=/opt/usr/bin/npm
+
+CONFIG_FILE=/opt/ideino-linino/autorun/autorun.conf
+
+boot () {
+	
+	sleep 90
+	if [ -f $CONFIG_FILE ]
+	then
+			
+		. $CONFIG_FILE
+		
+		if [ $IDEINOAPP ]
+		then
+			
+			$NODEJS --stack_size=1024 --max_old_space_size=20 --max_new_space_size=2048 \
+				--max_executable_size=5 --gc_global --gc_interval=100 $IDEINOAPP & > /dev/null 2>&1
+			
+			sleep 20
+			
+			NEW_PID=`ps wwww | grep $IDEINOAPP | grep -v grep | awk {'print $1'}`
+			
+			echo $NEW_PID
+			
+			#sed -e 's/\(IDEINOAPPPID\=\)\($IDEINOAPPPID)/\$NEW_PID/g' $CONFIG_FILE
+			
+			sed -i "s/IDEINOAPPPID=${IDEINOAPPPID}/IDEINOAPPPID=${NEW_PID}/g" $CONFIG_FILE
+			
+		fi
+	fi
+}

@@ -10,17 +10,7 @@ setInterval(function(){
 			formIdeino.action = prevUrl;	
 		}
 	});
-},1500);
-
-
-
-fetchIdeinoStatus(urlIdeino,function(status){
-	if(status)
-		document.getElementById("ideinoform").action = urlIdeino;
-	//else{//default
-	//}
-		
-});
+},500);
 
 function returnStatus(req, status, callback) {
 	//console.log(status);
