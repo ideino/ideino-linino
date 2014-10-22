@@ -1,3 +1,11 @@
+/*	
+*	Ideino is based on Noide project by Dave Stone https://github.com/davidjamesstone/noide. 
+*	Ideino https://github.com/ideino/ideino-linino-dist is released under the MIT License:
+*	
+*   Copyright (C) 2014 by Ideino
+*
+*/
+
 // requires
 var express = require('express'),
 	passport=require('passport'),

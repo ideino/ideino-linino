@@ -1,6 +1,13 @@
 #!/bin/sh /etc/rc.common
-# Copyright (C) 2008 OpenWrt.org
+# authors: 	https://github.com/artynet
 
+#	
+#	Ideino is based on Noide project by Dave Stone https://github.com/davidjamesstone/noide. 
+#	Ideino https://github.com/ideino/ideino-linino-dist is released under the MIT License:
+#	
+#   Copyright (C) 2014 by Ideino
+#
+#
 export PATH=/usr/bin:/bin:/sbin:/opt/usr/bin
 export NODEJS=/opt/usr/bin/node
 export LD_LIBRARY_PATH=/opt/usr/lib

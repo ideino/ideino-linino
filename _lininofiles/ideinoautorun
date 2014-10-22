@@ -1,7 +1,14 @@
 #!/bin/sh /etc/rc.common
-# authors: arturo rinaldi, sergio tomasello
-# license: mit
+# authors: 	https://github.com/artynet
+#			https://github.com/quasto
 
+#	
+#	Ideino is based on Noide project by Dave Stone https://github.com/davidjamesstone/noide. 
+#	Ideino https://github.com/ideino/ideino-linino-dist is released under the MIT License:
+#	
+#   Copyright (C) 2014 by Ideino
+#
+#
 START=99
 
 export PATH=/usr/bin:/bin:/sbin:/opt/usr/bin
@@ -12,8 +19,11 @@ export NPM=/opt/usr/bin/npm
 CONFIG_FILE=/opt/ideino-linino/autorun/autorun.conf
 
 boot () {
-	
-	sleep 90
+    start
+}
+
+start (){
+	sleep 30
 	if [ -f $CONFIG_FILE ]
 	then
 			
@@ -37,4 +47,5 @@ boot () {
 			
 		fi
 	fi
+
 }

@@ -1,6 +1,14 @@
 #!/bin/sh /etc/rc.common
-# authors: arturo rinaldi, sergio tomasello
-# license: mit
+# authors:  https://github.com/artynet
+#			https://github.com/quasto
+
+#	
+#	Ideino is based on Noide project by Dave Stone https://github.com/davidjamesstone/noide. 
+#	Ideino https://github.com/ideino/ideino-linino-dist is released under the MIT License:
+#	
+#   Copyright (C) 2014 by Ideino
+#
+#
 
 export PATH=/usr/bin:/bin:/sbin:/opt/usr/bin
 AUTODIR=/opt/ideino-linino/autorun
@@ -11,7 +19,7 @@ if [ -f $CONFIG_FILE ]
 then	
 	. $CONFIG_FILE
 
-	if [ -d "$1" ] && [ -e "$1""/""$2" ]
+	if [ -d "$1" ] && [ -e "$1""$2" ]
 	then
 		###STOPPING AUTORUNNING PROCESS IF EXISTS		
 		if [ $IDEINOAPPPID ]
@@ -32,19 +40,22 @@ then
 		echo ''
 		
 		###COPING SOURCE DIR TO AUTORUN DIR		
-		echo 'Copying '`basename "$1"` ' project directory into autorun directory...'
+		echo 'Copying '`basename "$1"`' project directory into autorun directory...'
 		cp -r "$1" $AUTODIR ;
 		sleep 3
-		echo `basename "$1"` 'project directory copied!'
+		echo `basename "$1"`' project directory copied !'
 		echo ''
 		
-		###UPDATING CONFIGURATION FILE WITH NEW STARTUP NODE APPLICATION		
-		NAME=$AUTODIR"/"`basename "$1"`"/""$2"
+		###UPDATING CONFIGURATION FILE WITH NEW STARTUP NODE APPLICATION
+		#echo $1
+		#echo $2		
+		NAME=$AUTODIR"/"`basename "$1"`"$2"
+		#NAME=$AUTODIR"/""$1""$2"
 		pwdesc2=$(echo $NAME | sed 's_/_\\/_g')
 		pwdesc1=$(echo $IDEINOAPP | sed 's_/_\\/_g')
 		sed -i -e "s/IDEINOAPP=${pwdesc1}/IDEINOAPP=${pwdesc2}/g" $CONFIG_FILE
 		sleep 3
-		echo $2' will run automatically at next startup!'
+		echo `basename $2`' will run automatically at next startup!'
 	fi
 
 fi
