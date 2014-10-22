@@ -128,7 +128,7 @@ if (fs.existsSync('./ideino.json')) {
   ideinoConfig = require('./ideino.json');
 }
 // set up default prj dir - used in the absence of a 'path' query string
-if (!ideinoConfig.projectsDir) ideinoConfig.projectsDir = path.join(__dirname, 'ideino/projects/user');
+if (!ideinoConfig.projectsDir) ideinoConfig.projectsDir = '/opt/ideino-workspace';//path.join(__dirname, 'ideino/projects/user');
 if (!ideinoConfig.templatesDir) ideinoConfig.templatesDir = path.join(__dirname, 'ideino/templates')
 //ST: changing loopback or localhost to real ip address
 if (!ideinoConfig.framesUrl1) ideinoConfig.framesUrl1 = "http://"+addresses[0]+":3000";
