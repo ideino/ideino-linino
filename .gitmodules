@@ -1,6 +1,3 @@
 [submodule "public/js/linino"]
 	path = public/js/linino
 	url = https://github.com/ideino/ideino-linino-lib-client.git
-[submodule "node_modules/ideino-linino-lib"]
-	path = node_modules/ideino-linino-lib
-	url = https://github.com/ideino/ideino-linino-lib.git
