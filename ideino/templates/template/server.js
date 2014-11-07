@@ -1,7 +1,20 @@
-var http = require('http');
-http.createServer(function (req, res) {
-  console.log('Hello World');
-  res.writeHead(200, {'Content-Type': 'text/plain'});
-  res.end('Hello World\n');
-}).listen(1337);
-console.log('Server running at :1337/');
+var linino = require('ideino-linino-lib'),
+    board = new linino.Board();
+
+var pin13 = board.pin.digital.D13,
+    ctrl = true;
+    
+board.connect( function(){
+    board.pinMode(pin13, board.MODES.OUTPUT);
+    
+    setInterval(function(){
+        if(ctrl){
+            board.digitalWrite(pin13, board.HIGH);
+            ctrl = false;
+        }
+        else{
+            board.digitalWrite(pin13, board.LOW);
+            ctrl = true;
+        }
+    },1000);
+});
