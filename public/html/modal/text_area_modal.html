@@ -1,0 +1,33 @@
+<html>
+	<head>
+	<script>
+	function exportTextArea()
+	{
+		var id = document.getElementById('textarea_id').value,
+			rows = document.getElementById('textarea_rows').value,
+			cols = document.getElementById('textarea_cols').value,
+			text = document.getElementById('textarea_text').value;
+			
+		parent.insert_textarea(id,rows,cols,text);
+		top.tinymce.activeEditor.windowManager.close();
+	}
+	</script>
+	</head>
+	<body>
+	<div id="textarea_popup_placeholder">
+		<div id="textarea_popup">
+			<form action="#" id="form" method="post" name="form">
+			ID : <input id="textarea_id" type="text"/input>
+			<br />
+			Rows : <input id="textarea_rows" type="text"/input>
+			<br />
+			Cols : <input id="textarea_cols" type="text"/input>
+			<br />
+			Text : <input id="textarea_text" type="text"/input>
+			<br />
+			<button id="b1" onclick="exportTextArea()">Include</button>
+			</form>
+		</div>
+	</div>
+	</body>
+</html>

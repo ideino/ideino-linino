@@ -1,0 +1,24 @@
+<html>
+	<head>
+	<script>
+	function exportLib()
+	{
+		var path = document.getElementById('lib_path').value;
+			
+		parent.insert_lib(path);
+		top.tinymce.activeEditor.windowManager.close();
+	}
+	</script>
+	</head>
+	<body>
+	<div id="lib_popup_placeholder">
+		<div id="lib_popup">
+			<form action="#" id="form" method="post" name="form">
+			Library path : <input id="lib_path" type="text"/input>
+			<br />
+			<button id="b1" onclick="exportLib()">Include</button>
+			</form>
+		</div>
+	</div>
+	</body>
+</html>

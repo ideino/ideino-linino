@@ -1,0 +1,30 @@
+<html>
+	<head>
+	<script>
+	function exportRadio()
+	{
+		var id = document.getElementById('radio_id').value,
+			name = document.getElementById('radio_name').value,
+			value = document.getElementById('radio_value').value;
+			
+		parent.insert_radio(id,name,value);
+		top.tinymce.activeEditor.windowManager.close();
+	}
+	</script>
+	</head>
+	<body>
+	<div id="radio_popup_placeholder">
+		<div id="radio_popup">
+			<form action="#" id="form" method="post" name="form">
+			ID : <input id="radio_id" type="text"/input>
+			<br />
+			Name : <input id="radio_name" type="text"/input>
+			<br />
+			Value : <input id="radio_value" type="text"/input>
+			<br />
+			<button id="b1" onclick="exportRadio()">Include</button>
+			</form>
+		</div>
+	</div>
+	</body>
+</html>

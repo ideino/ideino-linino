@@ -1,0 +1,30 @@
+<html>
+	<head>
+	<script>
+	function exportButton()
+	{
+		var id = document.getElementById('button_id').value,
+			text = document.getElementById('button_text').value,
+			action = document.getElementById('button_action').value;
+			
+		parent.insert_button(id, text, action);
+		top.tinymce.activeEditor.windowManager.close();
+	}
+	</script>
+	</head>
+	<body>
+	<div id="button_popup_placeholder">
+		<div id="button_popup">
+			<form action="#" id="form" method="post" name="form">
+			ID : <input id="button_id" type="text" /input>
+			<br/>
+			Text: <input id="button_text" type="text" /input>
+			<br/>
+			Action: <input id="button_action" type="text"/input>
+			<br/>
+			<button id="b2" onclick="exportButton()">Include</button>
+			</form>
+		</div>
+	</div>
+	</body>
+</html>

@@ -80,6 +80,20 @@ $(function($) {
 				session: session
 			}
 			this.activateFile(item);
+			if(ideinoView.procs.models.length == 0)
+			{
+				document.getElementById("stop_p").children[0].className = "cus-stoprun-disabled";
+				document.getElementById("run_p").children[0].className = "cus-resultset-next"; 
+				document.getElementById("stop_p").dataset.action = "blocked";
+				document.getElementById("run_p").dataset.action = "run";
+			}
+			else
+			{
+				document.getElementById("stop_p").children[0].className = "cus-stoprun";
+				document.getElementById("run_p").children[0].className = "cus-resultset-next-disabled"; 
+				document.getElementById("stop_p").dataset.action = "stoprun";
+				document.getElementById("run_p").dataset.action = "blocked";
+			}
 		},
 		fileUnloaded: function(item) {
 			this._removeTab(item);
@@ -163,7 +177,29 @@ $(function($) {
 					},
 					'unfoldall': function(file, editor) {
 						cmds.unfoldall.exec(editor);
+					},
+					'run' : function(item) {
+						if(ideinoView.procs.models.length != 0)
+							alert("A process already running!");
+						else
+						{
+							ideinoView.procs.add(new ChildProcess({
+							cmd: 'node ' + item.get('name'),
+							paths: item.paths(),
+							socket: ideinoView.socket
+						  }));
+						}	
+					  },
+					'stoprun' : function(item) {
+						if(ideinoView.procs.models.length == 0)
+							alert("No process to stop found!");
+						else
+							ideinoView.procs.models[0].kill();
+					  },
+					'blocked' : function(){
+						alert("null");
 					}
+					  
 				};
 				var action = $(e.currentTarget).data('action');
 				(actions[action] || function() {

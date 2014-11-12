@@ -1,0 +1,24 @@
+<html>
+	<head>
+	<script>
+	function exportInput()
+	{
+		var id = document.getElementById('input_id').value;
+			
+		parent.insert_input(id);
+		top.tinymce.activeEditor.windowManager.close();
+	}
+	</script>
+	</head>
+	<body>
+	<div id="input_popup_placeholder">
+		<div id="input_popup">
+			<form action="#" id="form" method="post" name="form">
+			ID : <input id="input_id" type="text"/input>
+			<br />
+			<button id="b1" onclick="exportInput()">Include</button>
+			</form>
+		</div>
+	</div>
+	</body>
+</html>

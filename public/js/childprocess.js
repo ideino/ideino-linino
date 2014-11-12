@@ -55,6 +55,10 @@ $(function($) {
 						self.set({ pid: data, alive: true });
 					});
 				}
+				document.getElementById("stop_p").children[0].className = "cus-stoprun";
+				document.getElementById("run_p").children[0].className = "cus-resultset-next-disabled"; 		
+				document.getElementById("stop_p").dataset.action = "stoprun";
+				document.getElementById("run_p").dataset.action = "blocked";
 			} else {
 				socket.emit('bind', { command: data.cmd, pid: data.pid, paths: data.paths, cid: this.cid }, function(data) {
 					console.log('cb '+data);
@@ -72,6 +76,10 @@ $(function($) {
 			} else {
 					self.collection.remove(self);
 			}
+			document.getElementById("stop_p").children[0].className = "cus-stoprun-disabled";
+			document.getElementById("run_p").children[0].className = "cus-resultset-next"; 
+			document.getElementById("stop_p").dataset.action = "blocked";
+			document.getElementById("run_p").dataset.action = "run";
 		}
 	});
 	
@@ -114,9 +122,9 @@ $(function($) {
 		changeBody: function(item) {
 			var $text = this.$el.find('.console').val(item.get('buffer'));
 			var $processes = $('#processes');
-			$text.css('height', '0');
+			//$text.css('height', '0');  <---
 			$text.css('height', $text.get(0).scrollHeight + 'px');
-			$processes.scrollTop($('#processes').get(0).scrollHeight - $processes.height());
+			//$processes.scrollTop($('#processes').get(0).scrollHeight - $processes.height());  <---
 		},
 		removed: function(item) {
 			this.remove();

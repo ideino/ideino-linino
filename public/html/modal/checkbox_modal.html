@@ -1,0 +1,30 @@
+<html>
+	<head>
+	<script>
+	function exportCheckbox()
+	{
+		var id = document.getElementById('check_id').value,
+			name = document.getElementById('check_name').value,
+			value = document.getElementById('check_value').value;
+			
+		parent.insert_checkbox(id,name,value);
+		top.tinymce.activeEditor.windowManager.close();
+	}
+	</script>
+	</head>
+	<body>
+	<div id="checkbox_popup_placeholder">
+		<div id="checkbox_popup">
+			<form action="#" id="form" method="post" name="form">
+			ID : <input id="check_id" type="text"/input>
+			<br />
+			Name : <input id="check_name" type="text"/input>
+			<br />
+			Value : <input id="check_value" type="text"/input>
+			<br />
+			<button id="b1" onclick="exportCheckbox()">Include</button>
+			</form>
+		</div>
+	</div>
+	</body>
+</html>

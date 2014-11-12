@@ -1,0 +1,123 @@
+@import "http://fonts.googleapis.com/css?family=Raleway";
+/*----------------------------------------------
+CSS settings for HTML div Exact Center
+------------------------------------------------*/
+#lib_popup_placeholder {
+width:100%;
+height:100%;
+opacity:.95;
+top:0;
+left:0;
+display:none;
+position:fixed;
+background-color:#313131;
+overflow:auto
+}
+#button_popup_placeholder {
+width:100%;
+height:100%;
+opacity:.95;
+top:0;
+left:0;
+display:none;
+position:fixed;
+background-color:#313131;
+overflow:auto
+}
+div#lib_popup {
+position:absolute;
+left:50%;
+top:17%;
+display:none;
+margin-left:-202px;
+font-family:'Raleway',sans-serif
+}
+div#button_popup {
+position:absolute;
+left:50%;
+top:17%;
+display:none;
+margin-left:-202px;
+font-family:'Raleway',sans-serif
+}
+form {
+max-width:600px;
+min-width:250px;
+padding:10px 50px;
+border:2px solid gray;
+border-radius:10px;
+font-family:raleway;
+background-color:#fff
+}
+p {
+margin-top:30px
+}
+h2 {
+background-color:#FEFFED;
+padding:20px 35px;
+margin:-10px -50px;
+text-align:center;
+border-radius:10px 10px 0 0
+}
+hr {
+margin:10px -50px;
+border:0;
+border-top:1px solid #ccc
+}
+input[type=text] {
+width:82%;
+max-width:250px;
+padding:10px;
+margin-top:30px;
+border:1px solid #ccc;
+padding-left:40px;
+font-size:16px;
+font-family:raleway
+}
+textarea {
+background-repeat:no-repeat;
+background-position:5px 7px;
+width:82%;
+height:95px;
+padding:10px;
+resize:none;
+margin-top:30px;
+border:1px solid #ccc;
+padding-left:40px;
+font-size:16px;
+font-family:raleway;
+margin-bottom:30px
+}
+#submit {
+text-decoration:none;
+width:100%;
+text-align:center;
+display:block;
+background-color:#FFBC00;
+color:#fff;
+border:1px solid #FFCB00;
+padding:10px 0;
+font-size:20px;
+cursor:pointer;
+border-radius:5px
+}
+button {
+width:auto;
+height:auto;
+border-radius:3px;
+background-color:#cd853f;
+color:#fff;
+font-family:'Raleway',sans-serif;
+font-size:18px;
+cursor:pointer
+}
+body{
+				  /* background: -webkit-radial-gradient(#B8B8B8, #FFFFFF, #B8B8B8); /* Safari 5.1 to 6.0 */
+				  /* background: -o-radial-gradient(#B8B8B8, #FFFFFF, #B8B8B8); /* For Opera 11.6 to 12.0 */
+				  /* background: -moz-radial-gradient(#B8B8B8, #FFFFFF, #B8B8B8); /* For Firefox 3.6 to 15 */
+				  /* background: radial-gradient(#B8B8B8, #FFFFFF, #B8B8B8); /* Standard syntax */
+				  
+				  /* background-repeat:no-repeat, repeat, repeat; */
+				  
+				  background-color : #A9A9A9;
+			}

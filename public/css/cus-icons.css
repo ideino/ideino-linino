@@ -16,7 +16,7 @@
 [class*=" cus-"]:last-child {
   *margin-left: 0;
 }
-
+ 
 .cus-accept{ background-position: 0 0;  } 
 .cus-add{ background-position: -21px 0;  } 
 .cus-anchor{ background-position: -42px 0;  } 
@@ -645,3 +645,6 @@
 .cus-zoom-in{ background-position: -1155px -126px;  } 
 .cus-zoom-out{ background-position: -1176px -126px;  } 
 .cus-cross-gray{ background-position: -1198px -126px;  } 
+.cus-stoprun { background-position: -1219px -126px; }
+.cus-stoprun-disabled {background-position: -1240px -126px; }
+.cus-resultset-next-disabled {background-position: -1261px -126px; }
