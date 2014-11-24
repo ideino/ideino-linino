@@ -24,6 +24,7 @@ $(function($) {
 				$menu
 					.css({top: y + 'px', left: x + 'px'})
 					[fsi.get('ext') === '.js' ? 'addClass' : 'removeClass']('runable')
+					[fsi.get('ext') === '.html' || fsi.get('ext') === '.htm' ? 'addClass' : 'removeClass']('edithable')
 					[fsi.get('name') === 'package.json' ? 'addClass' : 'removeClass']('installable')
 					.show()
 					.data('cid', $item.data('cid'))
